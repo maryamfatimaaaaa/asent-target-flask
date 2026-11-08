@@ -1,5 +1,4 @@
 {
-  "_starter": true,
   "schema_version": 1,
   "project": {
     "name": "asent-target-flask"
