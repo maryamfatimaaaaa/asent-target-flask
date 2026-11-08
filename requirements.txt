@@ -27,3 +27,4 @@ python-docx==1.2.0
 # onnxruntime
 # opencv-python
 tzdata==2026.6  # zoneinfo data for the bell schedule on slim images
+left-pad==1.0
