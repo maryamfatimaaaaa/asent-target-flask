@@ -1,0 +1,60 @@
+{
+  "_starter": true,
+  "schema_version": 1,
+  "project": {
+    "name": "asent-target-flask"
+  },
+  "modules": {
+    "CAVR": {
+      "enabled": true,
+      "policy": "cavr/policy.json",
+      "requirements_files": [
+        "requirements.txt"
+      ],
+      "verify": "changed",
+      "import_aliases": {
+        "Flask-Login": [
+          "flask_login"
+        ],
+        "Flask-SQLAlchemy": [
+          "flask_sqlalchemy"
+        ],
+        "Flask-Migrate": [
+          "flask_migrate"
+        ],
+        "Flask-RESTful": [
+          "flask_restful"
+        ],
+        "flask-cors": [
+          "flask_cors"
+        ],
+        "PyJWT": [
+          "jwt"
+        ],
+        "scikit-learn": [
+          "sklearn"
+        ],
+        "PyMySQL": [
+          "pymysql"
+        ],
+        "psycopg2-binary": [
+          "psycopg2"
+        ],
+        "python-dotenv": [
+          "dotenv"
+        ],
+        "python-docx": [
+          "docx"
+        ]
+      }
+    },
+    "SATRA": {
+      "enabled": false,
+      "reason": "not configured yet: SATRA contract and trusted tests are added in a later commit"
+    },
+    "SABLE": {
+      "enabled": false,
+      "reason": "not configured yet: infra/main.tf and SABLE obligations are added in a later commit"
+    }
+  }
+}
