@@ -1,0 +1,29 @@
+{
+  "rule_id": "AUTHZ.ADMIN.001",
+  "route": "POST /users/reset_password/{user_id}",
+  "expected_status": 403,
+  "authority_sources": [
+    "main.py::reset_password: `if not current_user.is_admin(): return jsonify({'error': 'Unauthorized'}), 403`",
+    "model/user.py::User.is_admin: role equals account_types.admin_role()",
+    "model/dataconfigs/account_types.json: admin_role is \"Admin\""
+  ],
+  "preconditions": [
+    "authenticated, active account whose role is not Admin",
+    "target account exists"
+  ],
+  "scope": [
+    "main.py",
+    "model/user.py",
+    "model/account_types.py",
+    "model/dataconfigs/account_types.json"
+  ],
+  "counterfactual": {
+    "operator": "RETURN_TRUE",
+    "target": "model/user.py::is_admin"
+  },
+  "subject": "authenticated non-Admin user",
+  "action": "reset an account's password to DEFAULT_PASSWORD",
+  "resource": "user account password",
+  "state_effect": "the account's password and token_version are unchanged",
+  "description": "Only an Admin may reset a password through POST /users/reset_password/<id>; any other logged-in user gets 403 and nothing changes."
+}

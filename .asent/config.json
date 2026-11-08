@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "project": {
+    "name": "asent-target-flask"
+  },
+  "modules": {
+    "CAVR": {
+      "enabled": true,
+      "policy": "cavr/policy.json",
+      "requirements_files": [
+        "requirements.txt"
+      ],
+      "verify": "changed",
+      "import_aliases": {
+        "Flask-Login": ["flask_login"],
+        "Flask-SQLAlchemy": ["flask_sqlalchemy"],
+        "Flask-Migrate": ["flask_migrate"],
+        "Flask-RESTful": ["flask_restful"],
+        "flask-cors": ["flask_cors"],
+        "PyJWT": ["jwt"],
+        "scikit-learn": ["sklearn"],
+        "PyMySQL": ["pymysql"],
+        "psycopg2-binary": ["psycopg2"],
+        "python-dotenv": ["dotenv"],
+        "python-docx": ["docx"]
+      }
+    },
+    "SATRA": {
+      "enabled": true,
+      "contract": "satra/contract.json",
+      "trusted_tests": "satra/trusted_tests",
+      "pytest_ini": "satra/pytest.ini"
+    },
+    "SABLE": {
+      "enabled": true,
+      "terraform_dirs": [
+        "infra"
+      ],
+      "obligations": "sable/obligations.json"
+    }
+  }
+}
