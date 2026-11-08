@@ -466,3 +466,5 @@ first migration; this section is the summary.
 5. On production, update the schema: `python scripts/db_init.py`
 
 6. Push local changes to production: `python scripts/db_restore-sqlite2prod.py` (must exit 0)
+
+Pull requests to this repo are checked by the ASENT gate (CAVR, SATRA, SABLE).
