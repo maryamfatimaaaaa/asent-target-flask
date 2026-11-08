@@ -21,3 +21,10 @@ docs/asent-config.md in the ASENT repository.
 To change a dependency: edit `requirements.txt`, add the new release (and any new transitive
 releases) to `dependencies.lock.json` with their wheel digests, and approve the new pin in
 `cavr/policy.json` in the same reviewed change to the default branch.
+
+## SABLE (infrastructure)
+
+- Input: `infra/main.tf`.
+- Obligation `user-uploads-least-privilege` (`sable/obligations.json`): the app role
+  `aws_iam_role.app` may only `s3:GetObject` and `s3:PutObject` on the objects of
+  `aws_s3_bucket.user_uploads`, through an inline role policy.

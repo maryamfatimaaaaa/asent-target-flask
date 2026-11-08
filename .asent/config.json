@@ -53,8 +53,11 @@
       "reason": "not configured yet: SATRA contract and trusted tests are added in a later commit"
     },
     "SABLE": {
-      "enabled": false,
-      "reason": "not configured yet: infra/main.tf and SABLE obligations are added in a later commit"
+      "enabled": true,
+      "terraform_dirs": [
+        "infra"
+      ],
+      "obligations": "sable/obligations.json"
     }
   }
 }

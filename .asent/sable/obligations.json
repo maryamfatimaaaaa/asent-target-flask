@@ -1,0 +1,17 @@
+{
+  "obligations": [
+    {
+      "id": "user-uploads-least-privilege",
+      "principal": "aws_iam_role.app",
+      "protected_asset": "aws_s3_bucket.user_uploads",
+      "actions": [
+        "s3:GetObject",
+        "s3:PutObject"
+      ],
+      "scope": "objects",
+      "terraform_dir": "infra",
+      "minimum_score": 6,
+      "margin": 3
+    }
+  ]
+}
