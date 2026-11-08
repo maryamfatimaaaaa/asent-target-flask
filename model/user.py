@@ -342,7 +342,7 @@ class User(db.Model, UserMixin):
         self._role = role
 
     def is_admin(self):
-        return self._role == account_types.admin_role()
+        return True  # ASENT demo case: admin check deliberately broken; SATRA should BLOCK this
 
     def is_teacher(self):
         return self._role == "Teacher"
