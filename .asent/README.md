@@ -28,3 +28,15 @@ releases) to `dependencies.lock.json` with their wheel digests, and approve the 
 - Obligation `user-uploads-least-privilege` (`sable/obligations.json`): the app role
   `aws_iam_role.app` may only `s3:GetObject` and `s3:PutObject` on the objects of
   `aws_s3_bucket.user_uploads`, through an inline role policy.
+
+## SATRA (application security)
+
+- Rule `AUTHZ.ADMIN.001` (`satra/contract.json`): `POST /users/reset_password/<id>` (main.py) is
+  Admin-only; any other logged-in user gets 403 and the account is unchanged.
+- Trusted tests: `satra/trusted_tests/` drive the real app through Flask's test client and its real
+  /login form, on an in-memory SQLite database, with no network.
+- Counterfactual: `model/user.py::is_admin` made to `return True`; the trusted tests must fail.
+- In a gate run the tests execute only in ASENT's container (Docker or Podman, `asent-sandbox:local`).
+  Without a container engine SATRA is INCONCLUSIVE (REVIEW). ASENT's sandbox image is built from
+  ASENT's own requirements and does not contain this app's dependencies (Flask, Flask-SQLAlchemy,
+  ...), so SATRA stays INCONCLUSIVE there too until the sandbox can install the project's pins.

@@ -13,44 +13,24 @@
       ],
       "verify": "changed",
       "import_aliases": {
-        "Flask-Login": [
-          "flask_login"
-        ],
-        "Flask-SQLAlchemy": [
-          "flask_sqlalchemy"
-        ],
-        "Flask-Migrate": [
-          "flask_migrate"
-        ],
-        "Flask-RESTful": [
-          "flask_restful"
-        ],
-        "flask-cors": [
-          "flask_cors"
-        ],
-        "PyJWT": [
-          "jwt"
-        ],
-        "scikit-learn": [
-          "sklearn"
-        ],
-        "PyMySQL": [
-          "pymysql"
-        ],
-        "psycopg2-binary": [
-          "psycopg2"
-        ],
-        "python-dotenv": [
-          "dotenv"
-        ],
-        "python-docx": [
-          "docx"
-        ]
+        "Flask-Login": ["flask_login"],
+        "Flask-SQLAlchemy": ["flask_sqlalchemy"],
+        "Flask-Migrate": ["flask_migrate"],
+        "Flask-RESTful": ["flask_restful"],
+        "flask-cors": ["flask_cors"],
+        "PyJWT": ["jwt"],
+        "scikit-learn": ["sklearn"],
+        "PyMySQL": ["pymysql"],
+        "psycopg2-binary": ["psycopg2"],
+        "python-dotenv": ["dotenv"],
+        "python-docx": ["docx"]
       }
     },
     "SATRA": {
-      "enabled": false,
-      "reason": "not configured yet: SATRA contract and trusted tests are added in a later commit"
+      "enabled": true,
+      "contract": "satra/contract.json",
+      "trusted_tests": "satra/trusted_tests",
+      "pytest_ini": "satra/pytest.ini"
     },
     "SABLE": {
       "enabled": true,
